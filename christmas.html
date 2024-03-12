@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>코딩테스트</title>
+        <link href="christmas.css">
+    </head>
+    <body>
+        <h1>크리스마스 이브까지 남은 시간</h1>
+        <h3 id="d-day"></h3>
+    </body>
+    <script>
+        const eve = document.getElementById("d-day")
+
+        function dDays() {
+            const christmasEve = new Date("2024-12-24")
+            const today = new Date()
+
+            const dDay = christmasEve - today
+
+            const dDayDay = Math.floor(dDay / (1000*60*60*24))
+            const dDayHour = Math.floor((dDay / (1000*60*60)) %24)
+            const dDayMin = Math.floor((dDay / (1000*60)) % 60)
+            const dDaySec = Math.floor(dDay / 1000 % 60)
+
+            eve.innerText = dDayDay + "일" + dDayHour + "시간" + dDayMin + "분" + dDaySec + "초"
+        }
+
+        dDays()
+        setInterval(dDays, 1000)
+    </script>
+</html>
